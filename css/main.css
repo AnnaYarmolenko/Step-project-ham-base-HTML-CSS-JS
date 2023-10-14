@@ -70,6 +70,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  padding-top: 120px;
 }
 
 /* ------ Header ------ */
@@ -78,6 +79,10 @@
   background: rgba(94, 93, 88, 0.6);
   box-sizing: border-box;
   position: relative;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1;
 }
 .logo {
   display: flex;
@@ -106,8 +111,11 @@
 .logo-nav-box {
   box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+}
+.header-nav {
+  margin-left: 305px;
+  margin-right: 21px;
 }
 .header-menu {
   display: flex;
@@ -534,14 +542,31 @@
   background-size: cover;
   padding-top: 98px;
   padding-bottom: 95px;
-  position: relative;
+  /* position: relative; */
 }
 .site-title-color {
   color: #fff;
 }
 .mrg {
   margin-top: 25px;
-  margin-bottom: 135px;
+  margin-bottom: 68px;
+}
+.slider {
+  max-width: 1160px;
+  margin-right: auto;
+  margin-left: auto;
+  overflow: hidden;
+}
+.slider-line {
+  /* position: relative; */
+  display: flex;
+  /* left: 0; */
+  align-items: center;
+  transition: all ease 1s;
+}
+.active-people {
+  width: 1160px;
+  text-align: center;
 }
 .people-say-text {
   color: #bbb;
@@ -549,33 +574,14 @@
   font-weight: 300;
   line-height: 1.9;
   text-align: center;
-  margin-bottom: 37px;
   position: relative;
-  display: none;
-  height: 45px;
-}
-.people-say-text-active {
-  display: block;
 }
 .people-say-text::before {
   content: url("./../img/quotes.svg");
   display: block;
-  position: absolute;
   right: 558px;
-  bottom: 130%;
-}
-.slider {
-  width: 167px;
-  margin-right: auto;
-  margin-left: auto;
-  overflow: hidden;
-}
-.slider-line {
-  width: 668px;
-  position: relative;
-  display: flex;
-  left: 0;
-  transition: all ease 1s;
+  bottom: 150%;
+  margin-bottom: 37px;
 }
 .people-name {
   color: #18cfab;
@@ -584,6 +590,7 @@
   font-weight: 700;
   line-height: 1.7;
   text-transform: uppercase;
+  margin-top: 37px;
 }
 .people-job {
   color: #bbb;

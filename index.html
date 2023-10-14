@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <div class="parallax">
       <header class="site-header">
         <div class="logo-nav-box container">
           <a class="logo" href="#">
@@ -44,15 +43,15 @@
               <li class="header-menu-item">
                 <a class="header-menu-link" href="#">TESTIMONIAL</a>
               </li>
-              <li class="header-menu-item">
-                <a class="header-menu-link" href="#">
-                  <img src="./img/search-icon.png" alt="search" />
-                </a>
-              </li>
             </ul>
           </nav>
+            <a href="#">
+              <img src="./img/search-icon.png" alt="search" />
+            </a>
         </div>
-      </header>
+      </header> 
+    <main>
+    <div class="parallax">
       <section class="about-us container">
         <p class="about-us-the-ham">The Ham is <span>Wordpress theme</span></p>
         <p class="about-us-creative">we are creative</p>
@@ -63,7 +62,6 @@
         <button class="button button-color-blue">purchase now</button>
       </section>
     </div>
-    <main>
       <section class="advantages">
         <ul class="advantages-list">
           <li class="advantages-item">
@@ -1074,41 +1072,38 @@
           <svg class="lines-icon-svg mrg" width="91" height="8">
             <use href="./img/symbol-defs.svg#icon-lines"></use>
           </svg>
-          <p class="people-say-text" >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ipsam.
-          </p>
-          <p class="people-say-text">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, error atque. Id dolorum, repellat dicta esse cupiditate dolorem deleniti placeat?
-          </p>
-          <p class="people-say-text">
-            Integer dignissim, augue tempus ultricies luctus, quam dui laoreet
-            sem, non dictum odio nisi quis massa. Morbi pulvinar odio eget
-            aliquam facilisis. Tempus ultricies luctus, quam dui laoreet sem,
-            non dictum odio nisi quis massa. Morbi pulvinar odio eget aliquam
-            facilisis.
-          </p>
-          <p class="people-say-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ea earum incidunt, eius repudiandae ipsum.
-          </p>
           <div class="slider">
-            <ul class="slider-line">
-              <li class="active-people">
+            <div class="slider-line">
+              <div class="active-people">
+                <p class="people-say-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ipsam.</p>
                 <p class="people-name">Helen Baker</p>
                 <p class="people-job">Designer</p>
-                <img class="people-main-photo" src="./img/people1.png" width="143" height="143" alt="people1" /></li>
-              <li class="active-people">
+                <img class="people-main-photo" src="./img/people1.png" width="143" height="143" alt="people1" />
+              </div>
+              <div class="active-people">
+                <p class="people-say-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, error atque. Id dolorum, repellat dicta esse
+                cupiditate dolorem deleniti placeat?</p>
                 <p class="people-name">Ethan Greene</p>
                 <p class="people-job">Marketer</p>
-                <img class="people-main-photo" src="./img/people2.png" width="143" height="143" alt="people2" /></li>
-              <li class="active-people">
+                <img class="people-main-photo" src="./img/people2.png" width="143" height="143" alt="people2" />
+              </div>
+              <div class="active-people">
+                <p class="people-say-text">Integer dignissim, augue tempus ultricies luctus, quam dui laoreet
+                sem, non dictum odio nisi quis massa. Morbi pulvinar odio eget
+                aliquam facilisis. Tempus ultricies luctus, quam dui laoreet sem,
+                non dictum odio nisi quis massa. Morbi pulvinar odio eget aliquam
+                facilisis.</p>
                 <p class="people-name">Hasan Ali</p>
                 <p class="people-job">UX Designer</p>
-                <img class="people-main-photo" src="./img/people3main.png" width="143" height="143" alt="people3main" /></li>
-              <li class="active-people">
+                <img class="people-main-photo" src="./img/people3main.png" width="143" height="143" alt="people3main" />
+              </div>
+              <div class="active-people">
+                <p  class="people-say-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ea earum incidunt, eius repudiandae ipsum.</p>
                 <p class="people-name">Estella Dean</p>
                 <p class="people-job">Web Designer</p>
-                <img class="people-main-photo" src="./img/people4.png" width="143" height="143" alt="people4" /></li>
-            </ul>
+                <img class="people-main-photo" src="./img/people4.png" width="143" height="143" alt="people4" />
+              </div>
+            </div>
           </div>
           <div class="slider-thumbnails">
             <button class="prevBtn" id="prevBtn">&#10094;</button>
@@ -1728,6 +1723,6 @@
     <script src="./js/jquery-3.7.1.min.js"></script>
     <script src="./js/masonry.pkgd.min.js"></script>
     <script src="./js/imagesloaded.pkgd.min.js"></script>
-    <script type="module" src="./js/exercise.js"></script>
+    <script src="./js/exercise.js"></script>
   </body>
 </html>

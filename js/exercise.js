@@ -129,62 +129,69 @@ loadBtn.addEventListener('click', function () {
 
 /* ------ Section People Say ------ */
 
-let offset = 0;
+const slider = document.querySelector('.slider');
+const sliderImages = document.querySelectorAll('.active-people');
 const sliderLine = document.querySelector('.slider-line');
-const thumbnails = document.querySelectorAll(".people-thumbnail");
+const thumbnails = document.querySelectorAll('.people-thumbnail');
+const sliderBtnNext = document.getElementById('nextBtn');
+const sliderBtnPrev = document.getElementById('prevBtn');
 
-const activePeople = document.querySelectorAll('.active-people');
-const activeText = document.querySelectorAll('.people-say-text');
+let sliderCount = 0;
+let sliderWidth = slider.offsetWidth;
+   
 
-function thumbnailSelection (selectedIndex) {
-    thumbnails.forEach((thumbnail, index) => {
-        if (index === selectedIndex) {
-            thumbnail.classList.add('selectedy');
-        } else {
-            thumbnail.classList.remove('selectedy');
-        }
-    })
+// Кнопки листання вперед і назад
+sliderBtnNext.addEventListener('click', nextSlide);
+sliderBtnPrev.addEventListener('click', prevSlide);
 
-activeText.forEach((text, index) => {
-    if (index === selectedIndex) {
-        text.style.display = "block";
-    } else {
-        text.style.display = "none";
+// Задає потрібну ширину картинки та sliderLine
+function showSlide() {
+    sliderWidth = document.querySelector('.slider').offsetWidth;
+    sliderLine.style.width = sliderWidth * sliderImages.length + 'px'; 
+    rollSlider();
+}
+showSlide();
+
+// Гортає слайд вперед
+function nextSlide() {
+    sliderCount++;
+    if (sliderCount >= sliderImages.length) {
+        sliderCount = 0;
     }
-});
+    rollSlider();
+    thisSlide(sliderCount);
 }
 
-// При нажатии на миниатюру 
-thumbnails.forEach((thumbnail, index) => {
-    thumbnail.addEventListener("click", () => {
-        offset = 167 * index;
-        sliderLine.style.left = -offset + 'px';
-        thumbnailSelection(index);
-    });
-});
-
-// При нажатии на кнопки
-document.querySelector('.nextBtn').addEventListener('click', function () {
-    offset += 167;
-    if (offset > 501) {
-        offset = 0;
+// Гортає слайд назад
+function prevSlide() {
+    sliderCount--;
+    if (sliderCount < 0) {
+        sliderCount = sliderImages.length - 1;
     }
-    sliderLine.style.left = -offset + 'px';
-    const selectedIndex = offset / 167;
-    thumbnailSelection(selectedIndex);
-});
+    rollSlider();
+    thisSlide(sliderCount);
+}
 
-document.querySelector('.prevBtn').addEventListener('click', function () {
-    offset -= 167;
-    if (offset < 0) {
-        offset = 501;
-    }
-    sliderLine.style.left = -offset + 'px';
-    const selectedIndex = offset / 167;
-    thumbnailSelection(selectedIndex);
-});
+// Задает крок зміщення слайдів
+function rollSlider() {
+    sliderLine.style.transform = `translateX(${-sliderCount * sliderWidth}px)`;
+}
 
-thumbnailSelection(0);
+// Вказує, який слайд по рахунку активний
+function thisSlide(index) {
+    thumbnails.forEach(item => item.classList.remove('selectedy'));
+    thumbnails[index].classList.add('selectedy');
+}
+
+// Вішає клік на мініатюру
+thumbnails.forEach((element, index) => {
+    element.addEventListener('click', () => {
+        sliderCount = index;
+        rollSlider();
+        thisSlide(sliderCount);
+    })
+})
+
 
 /* ------ Section Gallery of best images ------ */
 
@@ -254,27 +261,27 @@ let $grid3 = $('.elements-gride3').imagesLoaded(function () {
 
 
 const galleryBtn = document.getElementById('gallery-button');
-// let loadGalleryItem = 8;    
-// const showGalleryImage = document.querySelectorAll('.element-item');
+let loadGalleryItem = 8;    
+const showGalleryImage = document.querySelectorAll('.element-item');
 
-// galleryBtn.addEventListener('click', function () {
+galleryBtn.addEventListener('click', function () {
     
-//     const galleryLoadIp = document.querySelector('.gallery-load');  
-//         galleryLoadIp.classList.remove('none');
-//     setTimeout(function () {
-//         for (let i = loadGalleryItem; i < loadGalleryItem + 8; i++) {
+    const galleryLoadIp = document.querySelector('.gallery-load');  
+        galleryLoadIp.classList.remove('none');
+    setTimeout(function () {
+        for (let i = loadGalleryItem; i < loadGalleryItem + 3; i++) {
     
-//             if (showGalleryImage[i]) {
-//                 showGalleryImage[i].classList.remove('element-item-none');// Показываем следующие 12 картинок
-//                 galleryLoadIp.classList.add('element-item-none');
-//             }
-//         }
-//         loadGalleryItem += 8;
-//         if (loadGalleryItem >= 16) {
-//             galleryBtn.style.display = 'none';
-//         }
-//     }, 2000);
-// });
+            if (showGalleryImage[i]) {
+                showGalleryImage[i].classList.remove('element-item-none');// Показываем следующие 12 картинок
+                galleryLoadIp.classList.add('element-item-none');
+            }
+        }
+        loadGalleryItem += 3;
+        if (loadGalleryItem >= 16) {
+            galleryBtn.style.display = 'none';
+        }
+    }, 2000);
+});
 
 
 
